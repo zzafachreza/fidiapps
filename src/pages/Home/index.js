@@ -42,129 +42,129 @@ export default function Home({ navigation }) {
 
 
 
-
+  const DataKategori = ({
+    icon,
+    nama,
+    nama2,
+    onPress,
+    warna = colors.primary,
+  }) => {
+    return (
+      <TouchableOpacity
+        onPress={onPress}
+        style={{
+          backgroundColor: warna,
+          padding: 5,
+          borderRadius: 10,
+          borderWidth: 5,
+          borderColor: colors.secondary,
+          width: windowWidth / 2.5,
+          height: windowHeight / 5,
+          elevation: 5,
+          justifyContent: 'center',
+        }}>
+        <View>
+          <Icon
+            type="ionicon"
+            name={icon}
+            color={colors.white}
+            size={windowWidth / 5}
+          />
+        </View>
+        <View>
+          <Text
+            style={{
+              fontFamily: fonts.secondary[600],
+              color: colors.white,
+              fontSize: windowWidth / 30,
+              textAlign: 'center',
+            }}>
+            {nama}
+          </Text>
+          <Text
+            style={{
+              fontFamily: fonts.secondary[600],
+              color: colors.white,
+              fontSize: windowWidth / 35,
+              textAlign: 'center',
+              // marginHorizontal: 10,
+            }}>
+            {nama2}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <SafeAreaView style={{
       flex: 1,
       position: 'relative'
     }}>
-
       <View style={{
         backgroundColor: colors.primary,
         paddingHorizontal: 10,
-        paddingVertical: 20,
+        paddingVertical: 10,
+        flexDirection: 'row'
       }}>
-        <Text style={{
-          fontFamily: fonts.secondary[600],
-          fontSize: windowWidth / 25,
-          color: colors.white
-        }}>Selamat datang,</Text>
-
         <View style={{
-          flexDirection: 'row'
+          flex: 2
         }}>
-
-          <View style={{
-            flex: 2
-          }}>
-            <Text style={{
-              fontFamily: fonts.secondary[400],
-              fontSize: windowWidth / 25,
-              color: colors.white
-            }}>Ini adalah Aplikasi FiDi (Fishery Diversification)</Text>
-
-          </View>
+          <Text style={{
+            fontFamily: fonts.secondary[600],
+            fontSize: windowWidth / 25,
+            color: colors.white
+          }}>Selamat datang,</Text>
+          <Text style={{
+            fontFamily: fonts.secondary[400],
+            fontSize: windowWidth / 25,
+            color: colors.white
+          }}>di aplikasi FiDi (Fishery Diversification)</Text>
 
         </View>
+        <Image
+          source={require('../../assets/logo.png')}
+          style={{
+            height: 50,
+            borderRadius: 5,
+            width: 50,
+          }}
+        />
+
+
 
       </View>
 
-      <ScrollView style={{
+      <View style={{
         flex: 1,
-        padding: 10,
+        flexDirection: 'column',
+        justifyContent: 'space-around'
       }}>
-
-        {data.map(item => {
-
-          return (
-
-            <TouchableOpacity
-
-              onPress={() => navigation.navigate('Detail', {
-                id: item.id_berita
-              })}
-
-              style={{
-                marginVertical: 5,
-
-                borderWidth: 1,
-                padding: 10,
-                borderRadius: 10,
-
-              }}>
-              <View style={{
-                flexDirection: 'row'
-              }}>
-                <View style={{
-                  flex: 1
-                }}>
-                  <Text style={styles.judul}>No. Order</Text>
-                  <Text>{item.nomor_order}</Text>
-                </View>
-                <View style={{
-                  flex: 1
-                }}>
-                  <Text style={styles.judul}>Tanggal</Text>
-                  <Text>{item.tanggal}</Text>
-                </View>
-                <View style={{
-                  flex: 1
-                }}>
-                  <Text style={styles.judul}>NIK Teknisi</Text>
-                  <Text>{item.nik_teknisi}</Text>
-                </View>
-              </View>
-
-
-              <View style={{
-                flexDirection: 'row',
-                marginTop: 10,
-              }}>
-                <View style={{
-                  flex: 1
-                }}>
-                  <Text style={styles.judul}>Nama Pelanggan</Text>
-                  <Text>{item.nama_pelanggan}</Text>
-                </View>
-                <View style={{
-                  flex: 1
-                }}>
-                  <Text style={styles.judul}>CP Pelanggan</Text>
-                  <Text>{item.cp_pelanggan}</Text>
-                </View>
-                <View style={{
-                  flex: 1
-                }}>
-                  <Text style={styles.judul}>Nomor Internet</Text>
-                  <Text>{item.nomor_internet}</Text>
-                </View>
-              </View>
-
-
-            </TouchableOpacity>
-
-          )
-
-        })}
-
-
-      </ScrollView>
-
-
-
-
-
+        <View style={{
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          margin: 10
+        }}>
+          <DataKategori onPress={() => navigation.navigate('MenuKurikulum')} nama="Kurikulum" icon="book-outline" nama2="Menu kurikulum" />
+          <DataKategori onPress={() => navigation.navigate('MenuKompetensi')} nama="Kompetensi" icon="folder-open-outline" nama2="Menu Kompetensi" />
+        </View>
+        <View style={{
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          margin: 10
+        }}>
+          <DataKategori onPress={() => navigation.navigate('MenuMateri')} nama="Materi" icon="library-outline" nama2="Menu Materi" />
+          <DataKategori onPress={() => navigation.navigate('MenuLatihan')} nama="Latihan" icon="reader-outline" nama2="Menu Latihan" />
+        </View>
+        <View style={{
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          margin: 10
+        }}>
+          <DataKategori onPress={() => navigation.navigate('MenuTentang')} nama="Tentang" icon="information-circle-outline" nama2="Menu Tentang" />
+          <DataKategori onPress={() => navigation.navigate('MenuCredit')} nama="Credit Apps" icon="shield-checkmark-outline" nama2="Menu Credit Apps" />
+        </View>
+      </View>
 
 
 

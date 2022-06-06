@@ -4,36 +4,20 @@ import { createStackNavigator } from '@react-navigation/stack';
 import {
   Splash,
   Home,
-  Login,
-  MenuOrangTua,
-  MenuOrangTuaEdit,
-  MenuAnak,
-  MenuAnakEdit,
-  MenuPasutri,
-  MenuPasutriEdit,
-  MenuPendidikan,
-  MenuPendidikanEdit,
-  MenuPengalaman,
-  MenuPengalamanEdit,
-  MenuPelatihan,
-  MenuPelatihanEdit,
-  MenuProfileEdit,
-  MenuOrangTuaAdd,
-  MenuAnakAdd,
-  MenuPasutriAdd,
-  MenuPendidikanAdd,
-  MenuPelatihanAdd,
-  Petunjuk,
-  Register,
-  Add,
-  Add2,
-  Add3,
-  Ttd1,
-  Ttd2,
-  Detail,
+  Beranda,
+  MenuKurikulum,
+  MenuKompetensi,
+  MenuMateri,
+  MenuLatihan,
+  MenuTentang,
+  MenuCredit,
+  MenuMateriVidio,
+  MenuMateri1,
+  MenuMateri2,
+  MenuMateri3,
+  MenuMateri4,
 } from '../pages';
 import { colors } from '../utils';
-import MenuPengalamanAdd from '../pages/MenuPengalamanAdd';
 
 const Stack = createStackNavigator();
 
@@ -49,120 +33,6 @@ export default function Router() {
       />
 
 
-      <Stack.Screen
-        name="Login"
-        component={Login}
-        options={{
-          headerShown: false,
-          // headerTitle: 'Detail',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="Register"
-        component={Register}
-        options={{
-          headerShown: true,
-          headerTitle: 'Register',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-      <Stack.Screen
-        name="Add"
-        component={Add}
-        options={{
-          headerShown: true,
-          headerTitle: 'Halaman 1 ...',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="Add2"
-        component={Add2}
-        options={{
-          headerShown: true,
-          headerTitle: 'Halaman 2 ...',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="Add3"
-        component={Add3}
-        options={{
-          headerShown: true,
-          headerTitle: 'Halaman 3 ...',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="Ttd1"
-        component={Ttd1}
-        options={{
-          headerShown: true,
-          headerTitle: 'TTD Pelanggan',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="Ttd2"
-        component={Ttd2}
-        options={{
-          headerShown: true,
-          headerTitle: 'TTD Teknisi / Mitra',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="Detail"
-        component={Detail}
-        options={{
-          headerShown: true,
-          headerTitle: 'Detail Berita Acara',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="Petunjuk"
-        component={Petunjuk}
-        options={({ route }) => ({
-          title: route.params.name, headerStyle: {
-            backgroundColor: colors.primary,
-          }, headerTintColor: '#fff',
-        })}
-      />
-
-
 
       <Stack.Screen
         name="Home"
@@ -173,257 +43,170 @@ export default function Router() {
       />
 
       <Stack.Screen
-        name="MenuOrangTua"
-        component={MenuOrangTua}
+        name="Beranda"
+        component={Beranda}
         options={{
-          headerShown: true,
-          headerTitle: 'Orang Tua',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-
-      />
-
-      <Stack.Screen
-        name="MenuOrangTuaEdit"
-        component={MenuOrangTuaEdit}
-        options={{
-          headerShown: true,
-          headerTitle: 'Orang Tua Edit',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="MenuOrangTuaAdd"
-        component={MenuOrangTuaAdd}
-        options={{
-          headerShown: true,
-          headerTitle: 'Orang Tua Tambah',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
+          headerShown: false,
         }}
       />
 
 
       <Stack.Screen
-        name="MenuAnak"
-        component={MenuAnak}
+        name="MenuKurikulum"
+        component={MenuKurikulum}
         options={{
           headerShown: true,
-          headerTitle: 'Anak',
+          headerTitle: 'KURIKULUM',
+          headerTintColor: colors.white,
           headerStyle: {
             backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="MenuAnakEdit"
-        component={MenuAnakEdit}
-        options={{
-          headerShown: true,
-          headerTitle: 'Anak Edit',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="MenuAnakAdd"
-        component={MenuAnakAdd}
-        options={{
-          headerShown: true,
-          headerTitle: 'Anak Tambah',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-
-
-      <Stack.Screen
-        name="MenuPasutri"
-        component={MenuPasutri}
-        options={{
-          headerShown: true,
-          headerTitle: 'Suami / Istri',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
+          }
         }}
       />
 
 
       <Stack.Screen
-        name="MenuPasutriEdit"
-        component={MenuPasutriEdit}
+        name="MenuKompetensi"
+        component={MenuKompetensi}
         options={{
           headerShown: true,
-          headerTitle: 'Suami / Istri Edit',
+          headerTintColor: colors.white,
+          headerTitle: 'KOMPETENSI',
           headerStyle: {
             backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="MenuPasutriAdd"
-        component={MenuPasutriAdd}
-        options={{
-          headerShown: true,
-          headerTitle: 'Suami / Istri Tambah',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="MenuPendidikan"
-        component={MenuPendidikan}
-        options={{
-          headerShown: true,
-          headerTitle: 'Pendidikan',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="MenuPendidikanEdit"
-        component={MenuPendidikanEdit}
-        options={{
-          headerShown: true,
-          headerTitle: 'Pendidikan Edit',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="MenuPendidikanAdd"
-        component={MenuPendidikanAdd}
-        options={{
-          headerShown: true,
-          headerTitle: 'Pendidikan Tambah',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="MenuPengalaman"
-        component={MenuPengalaman}
-        options={{
-          headerShown: true,
-          headerTitle: 'Pengalaman',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="MenuPengalamanEdit"
-        component={MenuPengalamanEdit}
-        options={{
-          headerShown: true,
-          headerTitle: 'Pengalaman Edit',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
-        }}
-      />
-
-      <Stack.Screen
-        name="MenuPengalamanAdd"
-        component={MenuPengalamanAdd}
-        options={{
-          headerShown: true,
-          headerTitle: 'Pengalaman Tambah',
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
+          }
         }}
       />
 
 
       <Stack.Screen
-        name="MenuPelatihan"
-        component={MenuPelatihan}
+        name="MenuMateri"
+        component={MenuMateri}
         options={{
           headerShown: true,
-          headerTitle: 'Pelatihan',
+          headerTitle: 'MATERI',
+          headerTintColor: colors.white,
           headerStyle: {
             backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
+          }
+        }}
+      />
+
+
+      <Stack.Screen
+        name="MenuLatihan"
+        component={MenuLatihan}
+        options={{
+          headerShown: true,
+          headerTitle: 'LATIHAN',
+          headerTintColor: colors.white,
+          headerStyle: {
+            backgroundColor: colors.primary,
+          }
+        }}
+      />
+
+
+      <Stack.Screen
+        name="MenuTentang"
+        component={MenuTentang}
+        options={{
+          headerShown: true,
+          headerTitle: 'TENTANG',
+          headerTintColor: colors.white,
+          headerStyle: {
+            backgroundColor: colors.primary,
+          }
+        }}
+      />
+
+
+      <Stack.Screen
+        name="MenuCredit"
+        component={MenuCredit}
+        options={{
+          headerShown: true,
+          headerTitle: 'CREDIT APPS',
+          headerTintColor: colors.white,
+          headerStyle: {
+            backgroundColor: colors.primary,
+          }
+        }}
+      />
+
+
+      <Stack.Screen
+        name="MenuMateriVidio"
+        component={MenuMateriVidio}
+        options={{
+          headerShown: true,
+          headerTitle: 'MATERI VIDIO',
+          headerTintColor: colors.white,
+          headerStyle: {
+            backgroundColor: colors.primary,
+          }
+        }}
+      />
+
+
+
+      <Stack.Screen
+        name="MenuMateri1"
+        component={MenuMateri1}
+        options={{
+          headerShown: true,
+          headerTitle: 'MATERI SURIMI',
+          headerTintColor: colors.white,
+          headerStyle: {
+            backgroundColor: colors.primary,
+          }
         }}
       />
 
       <Stack.Screen
-        name="MenuPelatihanEdit"
-        component={MenuPelatihanEdit}
+        name="MenuMateri2"
+        component={MenuMateri2}
         options={{
           headerShown: true,
-          headerTitle: 'Pelatihan Edit',
+          headerTitle: 'MATERI NUGGET IKAN',
+          headerTintColor: colors.white,
           headerStyle: {
             backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
+          }
         }}
       />
 
       <Stack.Screen
-        name="MenuPelatihanAdd"
-        component={MenuPelatihanAdd}
+        name="MenuMateri3"
+        component={MenuMateri3}
         options={{
           headerShown: true,
-          headerTitle: 'Pelatihan Tambah',
+          headerTitle: 'MATERI BAKSO IKAN',
+          headerTintColor: colors.white,
           headerStyle: {
             backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
+          }
         }}
       />
 
+
+
       <Stack.Screen
-        name="MenuProfileEdit"
-        component={MenuProfileEdit}
+        name="MenuMateri4"
+        component={MenuMateri4}
         options={{
           headerShown: true,
-          headerTitle: 'Tentang Kami',
+          headerTitle: 'MATERI SOSIS IKAN',
+          headerTintColor: colors.white,
           headerStyle: {
             backgroundColor: colors.primary,
-          },
-          headerTintColor: '#fff',
+          }
         }}
       />
+
+
+
+
 
 
 

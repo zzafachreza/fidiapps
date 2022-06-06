@@ -10,15 +10,13 @@ import {
   Animated,
 } from 'react-native';
 import { colors } from '../../utils/colors';
-import { fonts } from '../../utils/fonts';
+import { fonts, fontScale } from '../../utils/fonts';
 import { color, asin } from 'react-native-reanimated';
 import { getData, storeData } from '../../utils/localStorage';
 import { PermissionsAndroid } from 'react-native';
 
 
 export default function Splash({ navigation }) {
-  const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
   const scaleLogo = new Animated.Value(0.1);
   const scaleText = new Animated.Value(100);
 
@@ -35,22 +33,11 @@ export default function Splash({ navigation }) {
 
   useEffect(() => {
 
-    const unsubscribe = getData('user').then(res => {
-      // console.log(res);
-      if (!res) {
-        // console.log('beum login');
 
-        setTimeout(() => {
-          navigation.replace('Home');
-        }, 1500);
-      } else {
-        console.log('sudah login logon');
+    setTimeout(() => {
+      navigation.replace('Beranda');
+    }, 1500);
 
-        setTimeout(() => {
-          navigation.replace('Home');
-        }, 1500);
-      }
-    });
   }, []);
 
   return (
@@ -65,18 +52,23 @@ export default function Splash({ navigation }) {
           style={{
             justifyContent: 'center',
             alignItems: 'center',
-
-            // paddingBottom: windowHeight / 4,
           }}>
           <Animated.Image
             source={require('../../assets/logo.png')}
             style={{
               resizeMode: 'contain',
-              // resizeMode: 'center',
               height: 200,
               aspectRatio: scaleLogo,
             }}
           />
+          <Text style={{
+            fontFamily: fonts.secondary[600],
+            fontSize: fontScale * 50
+          }}>FiDi Apps</Text>
+          <Text style={{
+            fontFamily: fonts.secondary[400],
+            fontSize: fontScale * 25
+          }}>Fishery Diversivication</Text>
         </View>
 
       </View>

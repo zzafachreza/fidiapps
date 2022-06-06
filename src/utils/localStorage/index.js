@@ -20,5 +20,5 @@ export const getData = async key => {
 };
 
 
-export const apiURL = 'https://zavalabs.com/pintarhijaiyah';
+export const apiURL = 'https://pintarhijaiyah.zavalabs.com/api/';
 
