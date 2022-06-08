@@ -16,6 +16,8 @@ import {
   MenuMateri2,
   MenuMateri3,
   MenuMateri4,
+  LatihanPost,
+  LatihanPre,
 } from '../pages';
 import { colors } from '../utils';
 
@@ -99,6 +101,33 @@ export default function Router() {
         options={{
           headerShown: true,
           headerTitle: 'LATIHAN',
+          headerTintColor: colors.white,
+          headerStyle: {
+            backgroundColor: colors.primary,
+          }
+        }}
+      />
+
+
+      <Stack.Screen
+        name="LatihanPost"
+        component={LatihanPost}
+        options={{
+          headerShown: true,
+          headerTitle: 'POST TEST',
+          headerTintColor: colors.white,
+          headerStyle: {
+            backgroundColor: colors.primary,
+          }
+        }}
+      />
+
+      <Stack.Screen
+        name="LatihanPre"
+        component={LatihanPre}
+        options={{
+          headerShown: true,
+          headerTitle: 'PRE TEST',
           headerTintColor: colors.white,
           headerStyle: {
             backgroundColor: colors.primary,

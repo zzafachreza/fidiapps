@@ -12,6 +12,8 @@ import MenuMateri1 from './MenuMateri1';
 import MenuMateri2 from './MenuMateri2';
 import MenuMateri3 from './MenuMateri3';
 import MenuMateri4 from './MenuMateri4';
+import LatihanPost from './LatihanPost';
+import LatihanPre from './LatihanPre';
 
 
 
@@ -32,6 +34,9 @@ export {
   MenuMateri1,
   MenuMateri2,
   MenuMateri3,
-  MenuMateri4
+  MenuMateri4,
+  LatihanPost,
+  LatihanPre
+
 
 };
