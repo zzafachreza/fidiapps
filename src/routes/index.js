@@ -18,6 +18,10 @@ import {
   MenuMateri4,
   LatihanPost,
   LatihanPre,
+  Utama,
+  Beranda2,
+  MenuMateri0,
+  MenuMateri00,
 } from '../pages';
 import { colors } from '../utils';
 
@@ -25,7 +29,7 @@ const Stack = createStackNavigator();
 
 export default function Router() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName='Home'>
       <Stack.Screen
         name="Splash"
         component={Splash}
@@ -33,6 +37,31 @@ export default function Router() {
           headerShown: false,
         }}
       />
+
+      <Stack.Screen
+        name="Utama"
+        component={Utama}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="MenuMateri0"
+        component={MenuMateri0}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="MenuMateri00"
+        component={MenuMateri00}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
 
 
 
@@ -47,6 +76,13 @@ export default function Router() {
       <Stack.Screen
         name="Beranda"
         component={Beranda}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Beranda2"
+        component={Beranda2}
         options={{
           headerShown: false,
         }}

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef } from "react";
-import { Button, View, Alert, Text } from "react-native";
+import { Button, View, Alert, Text, ImageBackground } from "react-native";
 import YoutubePlayer from "react-native-youtube-iframe";
 
 export default function ({ navigation, route }) {
@@ -22,8 +22,9 @@ export default function ({ navigation, route }) {
 
 
     return (
-        <View style={{
+        <ImageBackground source={require('../../assets/back.png')} style={{
             flex: 1,
+            justifyContent: 'center'
         }}>
             <YoutubePlayer
                 height={300}
@@ -31,6 +32,6 @@ export default function ({ navigation, route }) {
                 videoId={myUrl}
 
             />
-        </View>
+        </ImageBackground>
     );
 }

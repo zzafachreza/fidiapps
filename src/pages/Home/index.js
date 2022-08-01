@@ -1,8 +1,8 @@
-import { Alert, StyleSheet, Text, View, Image } from 'react-native'
+import { Alert, StyleSheet, Text, View, Image, ImageBackground, StatusBar } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { getData, storeData } from '../../utils/localStorage';
-import { colors, fonts, windowHeight, windowWidth } from '../../utils';
+import { colors, fonts, windowHeight, windowWidth, } from '../../utils';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { showMessage } from 'react-native-flash-message';
 import Sound from 'react-native-sound';
@@ -63,35 +63,29 @@ export default function Home({ navigation }) {
           elevation: 5,
           justifyContent: 'center',
         }}>
-        <View>
-          <Icon
-            type="ionicon"
-            name={icon}
-            color={colors.white}
-            size={windowWidth / 5}
-          />
-        </View>
-        <View>
-          <Text
-            style={{
-              fontFamily: fonts.secondary[600],
-              color: colors.white,
-              fontSize: windowWidth / 30,
-              textAlign: 'center',
-            }}>
-            {nama}
-          </Text>
-          <Text
-            style={{
-              fontFamily: fonts.secondary[600],
-              color: colors.white,
-              fontSize: windowWidth / 35,
-              textAlign: 'center',
-              // marginHorizontal: 10,
-            }}>
-            {nama2}
-          </Text>
-        </View>
+        <ImageBackground source={require('../../assets/back.png')} style={{
+          flex: 1,
+        }}>
+          <View>
+            <Icon
+              type="ionicon"
+              name={icon}
+              color={colors.white}
+              size={windowWidth / 5}
+            />
+          </View>
+          <View>
+            <Text
+              style={{
+                fontFamily: fonts.secondary[600],
+                color: colors.white,
+                fontSize: windowWidth / 30,
+                textAlign: 'center',
+              }}>
+              {nama}
+            </Text>
+          </View>
+        </ImageBackground>
       </TouchableOpacity>
     );
   };
@@ -101,6 +95,7 @@ export default function Home({ navigation }) {
       flex: 1,
       position: 'relative'
     }}>
+      <StatusBar backgroundColor={colors.primary} barStyle="light-content" />
       <View style={{
         backgroundColor: colors.primary,
         paddingHorizontal: 10,
@@ -153,7 +148,7 @@ export default function Home({ navigation }) {
           justifyContent: 'space-around',
           margin: 10
         }}>
-          <DataKategori onPress={() => navigation.navigate('MenuMateri')} nama="Materi" icon="library-outline" nama2="Menu Materi" />
+          <DataKategori onPress={() => navigation.navigate('MenuMateri0')} nama="Materi" icon="library-outline" nama2="Menu Materi" />
           <DataKategori onPress={() => navigation.navigate('MenuLatihan')} nama="Latihan" icon="reader-outline" nama2="Menu Latihan" />
         </View>
         <View style={{

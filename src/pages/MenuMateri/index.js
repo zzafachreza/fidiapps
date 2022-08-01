@@ -104,7 +104,7 @@ export default function MenuMateri({ navigation }) {
         MATERI VIDIO DOKUMENTASI
       </Text>
       <__MenuList onPress={() => navigation.navigate('MenuMateriVidio', {
-        url: 'suHyg7jOd7k'
+        url: '_zfOnca-pwA'
       })} judul="Dokumentasi Pribadi" img={require('../../assets/m5.png')} icon="logo-youtube" />
 
     </SafeAreaView>

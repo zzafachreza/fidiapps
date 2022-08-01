@@ -18,9 +18,9 @@ export const fonts = {
   },
   secondary: {
     200: 'Montserrat-ExtraLight',
-    300: 'Montserrat-Light',
-    400: 'Montserrat-Regular',
-    600: 'Montserrat-SemiBold',
+    300: 'quicksand-light',
+    400: 'quicksand-regular',
+    600: 'quicksand-bold',
     700: 'Montserrat-Bold',
     800: 'Montserrat-ExtraBold',
     900: 'Montserrat-Black',

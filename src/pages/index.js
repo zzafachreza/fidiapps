@@ -14,6 +14,10 @@ import MenuMateri3 from './MenuMateri3';
 import MenuMateri4 from './MenuMateri4';
 import LatihanPost from './LatihanPost';
 import LatihanPre from './LatihanPre';
+import Utama from './Utama';
+import Beranda2 from './Beranda2';
+import MenuMateri0 from './MenuMateri0';
+import MenuMateri00 from './MenuMateri00';
 
 
 
@@ -36,7 +40,10 @@ export {
   MenuMateri3,
   MenuMateri4,
   LatihanPost,
-  LatihanPre
-
+  LatihanPre,
+  Utama,
+  Beranda2,
+  MenuMateri0,
+  MenuMateri00
 
 };

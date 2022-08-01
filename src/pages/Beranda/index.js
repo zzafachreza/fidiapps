@@ -5,11 +5,13 @@ import {
     View,
     Dimensions,
     SafeAreaView,
+    ImageBackground,
     Image,
+    TouchableOpacity,
     Animated,
 } from 'react-native';
 import { colors } from '../../utils/colors';
-import { fonts, fontScale } from '../../utils/fonts';
+import { fonts, fontScale, windowWidth } from '../../utils/fonts';
 import { color, asin } from 'react-native-reanimated';
 import { getData, storeData } from '../../utils/localStorage';
 import { PermissionsAndroid } from 'react-native';
@@ -17,49 +19,70 @@ import { MyButton } from '../../components';
 
 export default function Beranda({ navigation }) {
     return (
-        <SafeAreaView style={{
+        <ImageBackground source={require('../../assets/back.png')} style={{
             flex: 1,
             padding: 10,
-
-            backgroundColor: colors.white
         }}>
             <View style={{
                 justifyContent: 'center',
                 alignItems: 'center',
                 flex: 1
             }}>
+                <Text style={{
+                    fontFamily: fonts.secondary[600],
+                    textAlign: 'center',
+                    color: colors.white,
+                    fontSize: windowWidth / 20,
+                }}>Selamat Datang</Text>
+                <Text style={{
+                    fontFamily: fonts.secondary[600],
+                    textAlign: 'center',
+                    color: colors.white,
+                    fontSize: windowWidth / 20,
+                }}>Di Aplikasi</Text>
+                <Text style={{
+                    fontFamily: fonts.secondary[600],
+                    textAlign: 'center',
+                    color: colors.white,
+                    fontSize: windowWidth / 20,
+                }}>Fishery Diversification</Text>
                 <Image
-                    source={require('../../assets/logo.png')}
+                    source={require('../../assets/hand.png')}
                     style={{
-                        height: 100,
-                        aspectRatio: 1,
+                        marginTop: '3%',
+                        height: 150,
+                        resizeMode: 'contain'
                     }}
                 />
-                <Text style={{
-                    fontFamily: fonts.secondary[800],
-                    textAlign: 'center',
-                    fontSize: fontScale * 40,
-                    margin: 10,
-                }}>BERANDA</Text>
+
+
 
                 <Text style={{
+                    marginTop: 10,
                     fontFamily: fonts.secondary[400],
                     textAlign: 'center',
-                    fontSize: fontScale * 25,
-                    maxWidth: '95%',
-                    marginVertical: 20
-                }}>Diversifikasi pengolahan hasil perikanan adalah suatu cara memproses bahan baku menjadi produk akhir yang memiliki jenis beraneka ragam sehingga memiliki added value/nilai tambah yang lebih sebagai upaya pemanfaatan bahan baku hasil panen yang berlebih sehingga memberikan manfaatan yang lebih besar.</Text>
-
-                <Text style={{
-                    fontFamily: fonts.secondary[400],
-                    textAlign: 'center',
-                    fontSize: fontScale * 25,
-                    maxWidth: '95%'
+                    color: colors.white,
+                    fontSize: windowWidth / 25,
+                    maxWidth: '80%',
+                    marginBottom: '5%'
                 }}>FiDi Apps merupakan Aplikasi Pembelajaran Pengolahan Diversifikasi Hasil Perikanan yang membahas tentang proses pembuatan produk olahan perikanan surimi, nugget ikan, bakso ikan, dan sosis ikan yang disertai dengan video praktikum sehingga diharapkan dapat mempermudah pemahaman anda dalam memahami dan mengaplikasikan materi diversifikasi perikanan.
                 </Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Beranda2')}>
+                    <Image source={require('../../assets/start.png')} style={{
+                        width: 80,
+                        height: 80,
+                    }} />
+                </TouchableOpacity>
             </View>
-            <MyButton onPress={() => navigation.navigate('Home')} Icons="home-outline" title="Halaman Utama" warna={colors.primary} />
-        </SafeAreaView>
+            <Image source={require('../../assets/org1.png')} style={{
+
+                width: 100,
+                height: 230,
+                position: 'absolute',
+                bottom: 0,
+            }} />
+
+        </ImageBackground>
     )
 }
 

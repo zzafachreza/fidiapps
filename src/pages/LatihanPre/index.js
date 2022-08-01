@@ -19,7 +19,7 @@ export default function LatihanPre({ navigation, route }) {
             "b": "Dendeng",
             "c": "Abon",
             "d": "Fillet ikan",
-            "betul": "a"
+            "betul": "Surimi",
         },
         {
             "pertanyaan": "Surimi memiliki kandunga konsentrasi protein myofibril yang sangat tinggi sehingga bisa menghasilkan produk yang...",
@@ -27,7 +27,7 @@ export default function LatihanPre({ navigation, route }) {
             "b": "Lunak dan kenyal",
             "c": "Elastis dan kenyal",
             "d": "Manis dan krispi",
-            "betul": "c"
+            "betul": "Elastis dan kenyal",
         },
         {
             "pertanyaan": "Gambar di bawah merupakan gambar pangan setengah jadi dari bahan baku ikan, yaitu...",
@@ -35,7 +35,7 @@ export default function LatihanPre({ navigation, route }) {
             "b": "Surimi",
             "c": "Bakso ikan",
             "d": "Sushi",
-            "betul": "a",
+            "betul": "Fillet ikan",
             "image": require('../../assets/soal1.png')
         },
         {
@@ -44,7 +44,7 @@ export default function LatihanPre({ navigation, route }) {
             "b": "Surimi",
             "c": "Bakso ikan",
             "d": "Sushi",
-            "betul": "b",
+            "betul": "Surimi",
             "image": require('../../assets/soal2.png')
         },
         {
@@ -53,15 +53,15 @@ export default function LatihanPre({ navigation, route }) {
             "b": "Dendeng",
             "c": "Abon",
             "d": "Fillet ikan",
-            "betul": "d"
+            "betul": "Fillet ikan",
         },
         {
             "pertanyaan": "Mengapa bahan baku surimi lebih baik menggunakan ikan yang berdaging putih?",
             "a": "karena mampu menghasilkan surimi dengan kadar lemak rendah dan protein tinggi",
-            "b": "karena mampu menghasilkan surimi dengan kadar lemak rendah dan protein tinggi",
+            "b": "karena mampu menghasilkan surimi dengan kualitas gel dan warna yang baik",
             "c": "karena mampu menghasilkan surimi dengan tingkat kesegaran dan protein yang tinggi",
             "d": "karena mampu menghasilkan surimi dengan warna cerah dan rasa yang nikmat",
-            "betul": "b"
+            "betul": "karena mampu menghasilkan surimi dengan kualitas gel dan warna yang baik",
         },
         {
             "pertanyaan": "Ada banyak ragam olahan yang dapat dihasilkan dari produk surimi, berikut macam-macamnya, Kecuali…",
@@ -69,7 +69,7 @@ export default function LatihanPre({ navigation, route }) {
             "b": "Bakso ikan, nugget ikan, & sosis ikan",
             "c": "Fish stick, fish cake, & shredded fish",
             "d": "Abon sapi, kerupuk kulit, & pempek telur ",
-            "betul": "d"
+            "betul": "Abon sapi, kerupuk kulit, & pempek telur ",
         },
         {
             "pertanyaan": "Nugget ikan tentu bukan sesuatu yang baru lagi di era saat ini, namun apa keuntungan mengkonsumsi nugget ikan dibandingkan produk nugget yang lain?Kecuali...",
@@ -77,23 +77,23 @@ export default function LatihanPre({ navigation, route }) {
             "b": "Memiliki rasa khas dan tidak mengandung duri",
             "c": "Mengandung banyak pengawet dan harganya mahal",
             "d": "Meningkatkan nafsu makan dan menangkal penyakit",
-            "betul": "c"
+            "betul": "Mengandung banyak pengawet dan harganya mahal"
         },
         {
             "pertanyaan": "Apa fungsi selongsong/casing/pelapis pada sosis ikan?",
             "a": "memberikan karakteristik khas pada sosis",
             "b": "menentukan bentuk dan ukuran sosis",
-            "c": "menentukan bentuk dan ukuran sosis",
-            "d": "menentukan bentuk dan ukuran sosis",
-            "betul": "d"
+            "c": "sebagai cetakan dan wadah sosis",
+            "d": "sebagai hiasan agar terlihat indah",
+            "betul": "sebagai hiasan agar terlihat indah",
         },
         {
             "pertanyaan": "Ciri-ciri bakso ikan berdasarkan Gambar di bawah ini yang tidak tepat adalah . . . .",
             "a": "Umumnya berbentuk bulat ",
             "b": "Tekstur lebih berserat dibanding bakso daging",
             "c": "Rasa lebih gurih dan berbau khas",
-            "d": "Rasa lebih gurih dan berbau khas",
-            "betul": "d",
+            "d": "Berwarna lebih putih",
+            "betul": "Tekstur lebih berserat dibanding bakso daging",
             "image": require('../../assets/soal3.png')
         },
     ]);
@@ -140,10 +140,10 @@ export default function LatihanPre({ navigation, route }) {
     }
 
 
+    const [tipe, setTipe] = useState(false);
 
 
-
-    const MySoal = ({ no, tanya, a, b, c, d, jawab, img }) => {
+    const MySoal = ({ tipe, no, tanya, a, b, c, d, jawab, img }) => {
         return (
             <View>
                 <View style={{
@@ -155,64 +155,28 @@ export default function LatihanPre({ navigation, route }) {
                     }}>{no}. </Text>
                     <Text style={{
                         fontFamily: fonts.secondary[400],
-                        fontSize: windowWidth / 25
+                        fontSize: windowWidth / 25,
+                        lineHeight: 20,
                     }}>{tanya}</Text>
 
                 </View>
                 {img && <Image source={img} style={{ width: 100, height: 100 }} />}
                 <View style={{ marginVertical: 5, }}>
 
-                    <TouchableOpacity onPress={() => {
-                        setJawaban({
-                            ...jawaban,
-                            [no]: jawab == 'a' ? 1 : 0
-                        })
-
-                        setPilih({
-                            ...pilih,
-                            [no]: a
-                        })
-                    }} style={pilih[no] == a ? styles.cek : styles.bulat}>
-                        <Text style={pilih[no] == a ? styles.txtOK : styles.txt}>{a}</Text>
+                    <TouchableOpacity style={jawab == a && tipe ? styles.cek : styles.bulat}>
+                        <Text style={jawab == a && tipe ? styles.txtOK : styles.txt}>{a}</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {
-                        setJawaban({
-                            ...jawaban,
-                            [no]: jawab == 'b' ? 1 : 0
-                        })
-                        setPilih({
-                            ...pilih,
-                            [no]: b
-                        })
-                    }} style={pilih[no] == b ? styles.cek : styles.bulat}>
-                        <Text style={pilih[no] == b ? styles.txtOK : styles.txt}>{b}</Text>
+                    <TouchableOpacity style={jawab == b && tipe ? styles.cek : styles.bulat}>
+                        <Text style={jawab == b && tipe ? styles.txtOK : styles.txt}>{b}</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {
-                        setJawaban({
-                            ...jawaban,
-                            [no]: jawab == 'c' ? 1 : 0
-                        })
-                        setPilih({
-                            ...pilih,
-                            [no]: c
-                        })
-                    }} style={pilih[no] == c ? styles.cek : styles.bulat}>
-                        <Text style={pilih[no] == c ? styles.txtOK : styles.txt}>{c}</Text>
+                    <TouchableOpacity style={jawab == c && tipe ? styles.cek : styles.bulat}>
+                        <Text style={jawab == c && tipe ? styles.txtOK : styles.txt}>{c}</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {
-                        setJawaban({
-                            ...jawaban,
-                            [no]: jawab == 'd' ? 1 : 0
-                        })
-                        setPilih({
-                            ...pilih,
-                            [no]: d
-                        })
-                    }} style={pilih[no] == d ? styles.cek : styles.bulat}>
-                        <Text style={pilih[no] == d ? styles.txtOK : styles.txt}>{d}</Text>
+                    <TouchableOpacity style={jawab == d && tipe ? styles.cek : styles.bulat}>
+                        <Text style={jawab == d && tipe ? styles.txtOK : styles.txt}>{d}</Text>
                     </TouchableOpacity>
 
                 </View>
@@ -257,13 +221,16 @@ export default function LatihanPre({ navigation, route }) {
 
                 {soal.map((item, index) => {
                     return (
-                        <MySoal no={index + 1} tanya={item.pertanyaan} jawab={item.betul} a={item.a} b={item.b} c={item.c} d={item.d} img={item.image} />
+                        <MySoal tipe={tipe} no={index + 1} tanya={item.pertanyaan} jawab={item.betul} a={item.a} b={item.b} c={item.c} d={item.d} img={item.image} />
                     )
                 })}
 
 
 
+                <MyButton onPress={() => {
+                    setTipe(true)
 
+                }} warna={colors.success} title="Lihat Kunci Jawaban" />
             </ScrollView>
 
 
@@ -287,8 +254,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         overflow: 'hidden',
         borderRadius: 10,
-        borderColor: colors.primary,
-        backgroundColor: colors.primary
+        borderColor: colors.success,
+        backgroundColor: colors.success
     },
     txt: {
         fontFamily: fonts.secondary[400],

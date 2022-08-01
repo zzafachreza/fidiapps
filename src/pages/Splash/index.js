@@ -10,10 +10,11 @@ import {
   Animated,
 } from 'react-native';
 import { colors } from '../../utils/colors';
-import { fonts, fontScale } from '../../utils/fonts';
+import { fonts, fontScale, windowWidth } from '../../utils/fonts';
 import { color, asin } from 'react-native-reanimated';
 import { getData, storeData } from '../../utils/localStorage';
 import { PermissionsAndroid } from 'react-native';
+import { StatusBar } from 'react-native';
 
 
 export default function Splash({ navigation }) {
@@ -35,44 +36,46 @@ export default function Splash({ navigation }) {
 
 
     setTimeout(() => {
-      navigation.replace('Beranda');
-    }, 1500);
+      navigation.replace('Utama');
+    }, 3000);
 
   }, []);
 
   return (
-    <SafeAreaView style={styles.page}>
+    <ImageBackground source={require('../../assets/back.png')} style={styles.page}>
+
       <View
         style={{
           flex: 1,
-          backgroundColor: colors.white,
           justifyContent: 'center',
         }}>
         <View
           style={{
             justifyContent: 'center',
             alignItems: 'center',
+            paddingHorizontal: windowWidth / 10,
           }}>
           <Animated.Image
-            source={require('../../assets/logo.png')}
+            source={require('../../assets/upi.png')}
             style={{
               resizeMode: 'contain',
               height: 200,
               aspectRatio: scaleLogo,
             }}
           />
+
           <Text style={{
+            marginTop: '10%',
             fontFamily: fonts.secondary[600],
-            fontSize: fontScale * 50
-          }}>FiDi Apps</Text>
-          <Text style={{
-            fontFamily: fonts.secondary[400],
-            fontSize: fontScale * 25
-          }}>Fishery Diversivication</Text>
+            fontSize: fontScale * 25,
+            color: colors.white,
+            textAlign: 'center'
+          }}>Pendidikan Kelautan dan Perikanan Universitas Pendidikan Indonesia Kampus Daerah Serang
+          </Text>
         </View>
 
       </View>
-    </SafeAreaView>
+    </ImageBackground>
   );
 }
 
