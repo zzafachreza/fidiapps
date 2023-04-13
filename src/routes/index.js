@@ -29,7 +29,7 @@ const Stack = createStackNavigator();
 
 export default function Router() {
   return (
-    <Stack.Navigator initialRouteName='Home'>
+    <Stack.Navigator initialRouteName='Splash'>
       <Stack.Screen
         name="Splash"
         component={Splash}
